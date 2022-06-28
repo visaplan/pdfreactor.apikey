@@ -133,7 +133,7 @@ project_urls = github_urls(package_name,
 setup_kwargs = dict(
     name=package_name,
     version=VERSION,
-    description="PACKAGE for UNITRACC",
+    description="PDFreactor API Key Generator",
     long_description=long_description,
     long_description_content_type='text/x-rst',
     # Get more from https://pypi.org/pypi?%3Aaction=list_classifiers
@@ -144,6 +144,10 @@ setup_kwargs = dict(
         'Framework :: Zope2',
         "Programming Language :: Python",
         "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3.4",
+        "Programming Language :: Python :: 3.5",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
         "Intended Audience :: Developers",
         "Operating System :: OS Independent",
         "License :: OSI Approved :: MIT License",
@@ -160,18 +164,11 @@ setup_kwargs = dict(
     zip_safe=False,
     install_requires=[
         'setuptools',
-        # -*- Extra requirements: -*-
-        'plone.api',
-        'Products.GenericSetup>=1.8.2',
-        'z3c.jbot',
+        'six',
     ],
     extras_require={
-        'test': [
-            'plone.app.testing',
-            # plone.app.robotframework 1.2.0 requires plone.testing 4.0.11; 
-            # plone.app.robotframework 1.3+ drops Plone 4.3 compatibility:
-            'plone.testing',
-            'plone.app.robotframework[debug]',
+        'plone': [
+            'pdfreactor.plone',
         ],
     },
     entry_points="""
